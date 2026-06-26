@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Premium Dark Mode design system - with neon/glassmorphism */
+  --ink: #e2e8f0;
+  --ink-deep: #ffffff;
+  --mute: #94a3b8;
+  --ash: #64748b;
+  --canvas: #090d16;
+  --surface-soft: rgba(15, 23, 42, 0.6);
+  --surface-card: rgba(30, 41, 59, 0.45);
+  --surface-dark: #020617;
+  --surface-dark-elevated: #0f172a;
+  --hairline: rgba(255, 255, 255, 0.07);
+  --hairline-strong: rgba(255, 255, 255, 0.15);
+  /* Neon green/emerald accent */
+  --accent: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --success: #10b981;
+}
+
+* {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-card) transparent;
+}
+
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--surface-card); border-radius: 2px; }
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: var(--accent);
+  color: #020617;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 2;
+  padding: 0 16px;
+  border-radius: 4px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--surface-card);
+  backdrop-filter: blur(12px);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2;
+  padding: 0 16px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 4px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--ink);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--mute);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2;
+  padding: 0 10px;
+  border-radius: 4px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-ghost:hover {
+  color: var(--ink-deep);
+  background: var(--surface-card);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2;
+  padding: 0 16px;
+  border-radius: 4px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-danger:hover {
+  background: var(--danger);
+  color: #ffffff;
+  border-color: var(--danger);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+
+/* ── Inputs ── */
+.input {
+  background: var(--surface-soft);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  height: 40px;
+  width: 100%;
+  outline: none;
+}
+.input:focus {
+  background: var(--canvas);
+  border-color: var(--ink);
+}
+
+/* ── Hairline dividers ── */
+.hairline { border: 1px solid var(--hairline); }
+.hairline-bottom { border-bottom: 1px solid var(--hairline); }
+.hairline-top { border-top: 1px solid var(--hairline); }
+.hairline-strong { border-color: var(--hairline-strong); }
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.badge-dark {
+  background: var(--surface-dark);
+  color: #e5e5e5;
+}
+.badge-accent {
+  background: var(--accent);
+  color: white;
+}
+
+/* ── Tab strip ── */
+.tab {
+  background: transparent;
+  color: var(--mute);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.1s;
+}
+.tab:hover { color: var(--ink); }
+.tab-active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ── Range slider ── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--surface-card);
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ── Toggle switch ── */
+.toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--surface-card);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+.toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.toggle.active {
+  background: var(--accent);
+}
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.toggle.active::after {
+  transform: translateX(16px);
+}
+
+/* ── Icon button (no label, icon-only) ── */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--mute);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+.btn-icon:hover { background: var(--surface-soft); color: var(--ink); }
+.btn-icon:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn-icon.danger { color: var(--danger); }
+.btn-icon.danger:hover { background: rgba(255, 59, 48, 0.1); }
+
+.btn-icon-sm {
+  width: 24px;
+  height: 24px;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 48px;
+  background: var(--surface-soft);
+  border-right: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  gap: 4px;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+.sidebar.expanded {
+  width: 180px;
+  align-items: stretch;
+  padding: 8px;
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 4px;
+  border: none;
+  background: none;
+  color: var(--mute);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  transition: background 0.1s, color 0.1s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.sidebar-item:hover { background: var(--surface-card); color: var(--ink); }
+.sidebar-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sidebar-item.active { color: var(--accent); background: var(--surface-card); }
+.sidebar.expanded .sidebar-item { width: 100%; height: 32px; padding: 0 8px; }
+
+.sidebar-divider {
+  width: 24px;
+  height: 1px;
+  background: var(--hairline);
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+.sidebar.expanded .sidebar-divider { width: 100%; margin: 4px 0; }
+
+/* ── Focus ring ── */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-ghost:focus-visible,
+.btn-danger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+select.input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Confirm dialog ── */
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.confirm-dialog {
+  background: var(--surface-dark-elevated);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(16, 185, 129, 0.15);
+}
+.confirm-dialog h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.confirm-dialog p {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: var(--mute);
+  line-height: 1.5;
+}
+.confirm-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ── Toast notification ── */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toast {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: toast-in 0.2s ease-out;
+  max-width: 360px;
+}
+.toast-error {
+  background: var(--danger);
+  color: white;
+}
+.toast-success {
+  background: var(--accent);
+  color: white;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Loading spinner ── */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--hairline);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Settings sidebar ── */
+.settings-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 13px;
+  text-align: left;
+  background: transparent;
+  color: var(--mute);
+  border: none;
+  border-right: 2px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 400;
+}
+.settings-nav-item:hover {
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+.settings-nav-item.active {
+  background: var(--surface-card);
+  color: var(--ink);
+  border-right-color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Section header ── */
+.section-header {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hairline);
+  font-weight: 700;
+  font-size: 14px;
+}

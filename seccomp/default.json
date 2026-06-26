@@ -1,0 +1,28 @@
+{
+  "default_action": "allow",
+  "architectures": ["x86_64"],
+  "syscalls": [
+    {
+      "names": [
+        "unshare", "setns",
+        "ptrace", "personality",
+        "init_module", "finit_module", "delete_module",
+        "mount", "umount2", "pivot_root", "chroot",
+        "reboot", "sethostname", "setdomainname", "kexec_load", "kexec_file_load",
+        "swapon", "swapoff", "acct", "settimeofday", "iopl", "ioperm",
+        "io_uring_setup", "io_uring_enter", "io_uring_register",
+        "keyctl", "add_key", "request_key",
+        "bpf",
+        "remap_file_pages", "mbind", "set_mempolicy", "get_mempolicy",
+        "migrate_pages", "move_pages",
+        "lookup_dcookie", "vserver", "userfaultfd",
+        "pkey_mprotect", "pkey_alloc", "pkey_free",
+        "process_vm_readv", "process_vm_writev", "kcmp",
+        "sched_setattr", "sched_getattr",
+        "perf_event_open"
+      ],
+      "action": "errno",
+      "errno": 1
+    }
+  ]
+}

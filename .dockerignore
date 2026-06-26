@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+.venv/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Development tooling
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Node / Frontend (source only — built dist is included via the build stage)
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Secrets & env
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation (not needed in the image)
+PLAN.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
